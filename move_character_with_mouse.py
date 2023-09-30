@@ -33,12 +33,21 @@ frame = 0
 hide_cursor()
 
 while running:
+    if(len(list_hand_x) !=0):
+        if(i == list_hand_x[0] and j == list_hand_y[0]):
+            x1, y1 = i, j
+            del list_hand_x[0]
+            del list_hand_y[0]
+        for k in range(0, 100 + 1, 1):
+            t = k / 100
+            i = (1 - t) * x1 + t * list_hand_x[0]
+            j = (1 - t) * y1 + t * list_hand_y[0]
     clear_canvas()
     TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-
     for n in range(len(list_hand_x)):
         hand_x, hand_y = list_hand_x[n], list_hand_y[n]
         hand.clip_draw(0, 0, 50, 52, hand_x, hand_y)
+
     hand.clip_draw(0, 0, 50, 52, x, y)
     character.clip_draw(frame * 100, 100 * 1, 100, 100, i, j)
     update_canvas()
