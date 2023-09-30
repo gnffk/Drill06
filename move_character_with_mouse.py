@@ -42,19 +42,8 @@ while running:
     clear_canvas()
     TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     hand.clip_draw(0,0,50,52,x,y)
-    if len(list_hand_x) > 0 and i == list_hand_x[0] and j == list_hand_y[0]:
-        removed_value = list_hand_x.pop(0)
-        x1, y1 = i, j
-
-    if len(list_hand_x) > 0 and len(list_hand_y) > 0:
-        for k in range(0, 100 + 1, 1):
-            t = k / 100
-            i = (1 - t) * x1 + t * list_hand_x[0]
-            j = (1 - t) * y1 + t * list_hand_y[0]
     character.clip_draw(frame * 100, 100 * 1, 100, 100, i, j)
-    
-    for i in range(0,len(list_hand_x)-1):
-        hand.clip_draw(0, 0, 50, 52, list_hand_x[i], list_hand_y[i])
+
     update_canvas()
     frame = (frame + 1) % 8
 
