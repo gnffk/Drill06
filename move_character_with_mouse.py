@@ -69,3 +69,4 @@ while running:
         frame = (frame + 1) % 8
         handle_events()
 close_canvas()
+
