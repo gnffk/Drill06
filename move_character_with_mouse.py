@@ -43,9 +43,12 @@ while running:
             for n in range(len(list_hand_x)):
                 hand_x, hand_y = list_hand_x[n], list_hand_y[n]
                 hand.clip_draw(0, 0, 50, 52, hand_x, hand_y)
-
+            if (list_hand_x[0] - i > 0):
+                move = 1
+            elif (list_hand_x[0] - i < 0):
+                move = 0
             hand.clip_draw(0, 0, 50, 52, x, y)
-            character.clip_draw(frame * 100, 100 * 1, 100, 100, i, j)
+            character.clip_draw(frame * 100, 100 * move, 100, 100, i, j)
             update_canvas()
             frame = (frame + 1) % 8
             delay(0.01)
